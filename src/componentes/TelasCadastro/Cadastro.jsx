@@ -1,7 +1,7 @@
 import React from 'react'
-import TelaLogin from '../TelaLogin'
 import css from '../../estilos/Cadastro.css'
-import {Link} from 'react-router-dom'
+import {Link,Switch,Route} from 'react-router-dom'
+
 export default class Cadastro extends React.Component{
     render(){
         return(
@@ -34,7 +34,7 @@ export default class Cadastro extends React.Component{
                     <Link to='/'>
                         <button id='sair'>SAIR</button>
                     </Link>
-                    <Link to='/'>
+                    <Link to='/verificacao'>
                         <button id='cadastrar2'>CADASTRAR</button>
                     </Link>
                 </div>

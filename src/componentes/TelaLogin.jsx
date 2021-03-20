@@ -1,6 +1,5 @@
 import React from 'react'
 import css from '../estilos/TelaLogin.css'
-import Cadastro from './TelasCadastro/Cadastro'
 import {Link} from 'react-router-dom'
 export default class Telalogin extends React.Component{
     
