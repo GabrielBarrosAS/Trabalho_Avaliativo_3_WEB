@@ -1,0 +1,22 @@
+#cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#campos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+}
+
+#cadastroEsq,#cadastroDir{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+label,input{
+    width: 100%;
+}

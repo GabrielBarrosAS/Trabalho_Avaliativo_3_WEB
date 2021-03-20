@@ -1,0 +1,48 @@
+#containerPrincipal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+    font-weight: bolder;
+}
+
+#login,#senha,#botoes{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    background-color: rgb(29, 159, 219);
+    padding: 10px 10px 10px 10px;
+}
+
+label,input,button#entrar,button#cadastrar{
+    height: 20px;
+    width: 25%;
+    font-size: 20px;
+    text-align: left;
+    border: 1px solid black;
+}
+label{
+    border: 0px;
+}
+input{
+    font-size: 15px;
+    width: 50%;
+    text-align: center;
+}
+
+button#entrar,button#cadastrar{
+    height: 25px;
+    width: 20%;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid white;
+    background-color: white;
+    outline: none;
+}
+button#entrar:active,button#cadastrar:active{
+    position: relative;
+    top: 2px;
+    border: 1px solid black;
+}
+
