@@ -1,5 +1,7 @@
 import React from 'react'
+import TelaLogin from '../TelaLogin'
 import css from '../../estilos/Cadastro.css'
+import {Link} from 'react-router-dom'
 export default class Cadastro extends React.Component{
     render(){
         return(
@@ -27,6 +29,14 @@ export default class Cadastro extends React.Component{
                         <label id='labelcomplemento'>Complemento (Opcional)</label>
                         <input type="text" id='complemento'/>
                     </div>
+                </div>
+                <div id='botoes2'>
+                    <Link to='/'>
+                        <button id='sair'>SAIR</button>
+                    </Link>
+                    <Link to='/'>
+                        <button id='cadastrar2'>CADASTRAR</button>
+                    </Link>
                 </div>
             </div>
         )

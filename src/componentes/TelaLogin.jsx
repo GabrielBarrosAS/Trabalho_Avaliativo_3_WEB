@@ -1,7 +1,9 @@
 import React from 'react'
 import css from '../estilos/TelaLogin.css'
-
+import Cadastro from './TelasCadastro/Cadastro'
+import {Link} from 'react-router-dom'
 export default class Telalogin extends React.Component{
+    
     render(){
         return(
             <div id='containerPrincipal'>
@@ -16,7 +18,9 @@ export default class Telalogin extends React.Component{
                 </div>
                 <div id='botoes'>
                     <button type="submit" id='entrar'>ENTRAR</button>
-                    <button type="submit" id='cadastrar'>CADASTRO</button>
+                    <Link to='/cadastro'>
+                        <button type="submit" id='cadastrar'>CADASTRO</button>
+                    </Link>
                 </div>
             </div>
         )
