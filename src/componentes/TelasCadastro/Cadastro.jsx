@@ -5,10 +5,19 @@ import {Link} from 'react-router-dom'
 export default class Cadastro extends React.Component{
     constructor(props){
         super(props)
+
+        this.myRef = React.createRef();
+        this.print = this.print.bind(this)
     }
     
     print(){
-        console.log(React.Children.toArray(this.props.children))
+        const list = []
+        for (let index = 0; index < this.myRef.current.children.length; index++){
+            for (let j = 0; j < this.myRef.current.children[index].children.length; j++){
+                list.push(this.myRef.current.children[index].children[j])
+            }
+        }
+        console.log(list)
     }
 
     render(){
@@ -16,7 +25,7 @@ export default class Cadastro extends React.Component{
             <div id='cadastro'>
                 <link rel="stylesheet" href={css}/>
                 <h1>CADASTRO</h1>
-                <div id='campos'>
+                <div id='campos' ref={this.myRef}>
                     <div id='cadastroEsq'>
                         <label id='labelNome'>Nome do usuário</label>
                         <input type="text" id='nome'/>
@@ -43,7 +52,9 @@ export default class Cadastro extends React.Component{
                         <button id='sair'>SAIR</button>
                     </Link>
                     <Link to='/verificacao'>
-                        <button id='cadastrar2' onClick={()=>{this.props.atualiza('email')}}>CADASTRAR</button>
+                        <button id='cadastrar2' onClick={this.print}>
+                            CADASTRAR
+                        </button>
                     </Link>
                 </div>
             </div>
