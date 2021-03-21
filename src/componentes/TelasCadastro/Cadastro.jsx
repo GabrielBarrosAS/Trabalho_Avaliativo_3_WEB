@@ -1,8 +1,16 @@
 import React from 'react'
 import css from '../../estilos/Cadastro.css'
-import {Link,Switch,Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export default class Cadastro extends React.Component{
+    constructor(props){
+        super(props)
+    }
+    
+    print(){
+        console.log(React.Children.toArray(this.props.children))
+    }
+
     render(){
         return(
             <div id='cadastro'>
@@ -35,7 +43,7 @@ export default class Cadastro extends React.Component{
                         <button id='sair'>SAIR</button>
                     </Link>
                     <Link to='/verificacao'>
-                        <button id='cadastrar2'>CADASTRAR</button>
+                        <button id='cadastrar2' onClick={()=>{this.props.atualiza('email')}}>CADASTRAR</button>
                     </Link>
                 </div>
             </div>

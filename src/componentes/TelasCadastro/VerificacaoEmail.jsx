@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default props =>
-<div>
-    <h1>Enviamos um email para: {props.email}</h1>
-</div>
+export default class VerificacaoEmail extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return <h1>Enviamos um email para: {this.props.email}</h1>
+    }
+}
