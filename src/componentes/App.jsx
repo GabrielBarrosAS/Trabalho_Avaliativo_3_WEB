@@ -18,18 +18,20 @@ export default class App extends React.Component{
             numeroCasaCadastrado: '',
             complementoCadastrado: '',
         };
+
     }
 
-    setEstado = ([valores]) =>{
-        this.setState(
-        {nomeCadastrado: valores[0]},
-        {senhaCadastrada: valores[1]},
-        {emailCadastrado: valores[2]},
-        {CPFCadastrado: valores[3]},
-        {dataNascCadastrada: valores[4]},
-        {enderecoCadastrado: valores[5]},
-        {numeroCasaCadastrado: valores[6]},
-        {complementoCadastrado: valores[7]})
+    setEstado = (valores)=>{
+        this.setState({nomeCadastrado: valores[0],
+            emailCadastrado: valores[1],
+            dataNascCadastrada: valores[2],
+            numeroCasaCadastrado: valores[3],
+            senhaCadastrada: valores[4],
+            CPFCadastrado: valores[5],
+            enderecoCadastrado: valores[6],
+            complementoCadastrado: valores[7],
+        })
+        console.log(valores)
     }
     render(){
         return(
@@ -37,7 +39,8 @@ export default class App extends React.Component{
         <Switch>
             <Route exact path='/' component={TelaLogin}/>
             <Route path='/cadastro' render={props => <Cadastro {...props} atualiza={this.setEstado}/>}/>
-            <Route path='/verificacao' render={props => <Verificacao {...props} email={this.state.emailCadastrado}/>}/>
+            <Route path='/verificacao' 
+                render={props => <Verificacao {...props} nome={this.state.nomeCadastrado} data={this.state.dataNascCadastrada} email={this.state.emailCadastrado}/>}/>
         </Switch>
         </div>
         )

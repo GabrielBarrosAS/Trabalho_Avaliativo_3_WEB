@@ -13,11 +13,11 @@ export default class Cadastro extends React.Component{
     print(){
         const list = []
         for (let index = 0; index < this.myRef.current.children.length; index++){
-            for (let j = 0; j < this.myRef.current.children[index].children.length; j++){
-                list.push(this.myRef.current.children[index].children[j])
+            for (let j = 1; j < this.myRef.current.children[index].children.length; j+=2){
+                list.push(this.myRef.current.children[index].children[j].value)
             }
         }
-        console.log(list)
+        this.props.atualiza(list)
     }
 
     render(){
