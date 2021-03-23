@@ -6,6 +6,10 @@
     background-color: rgb(29, 159, 219);
     font-weight: bolder;
     color: black;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #campos,#botoes2{
