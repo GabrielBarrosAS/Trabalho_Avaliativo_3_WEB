@@ -3,11 +3,6 @@ import React from 'react'
 export default class UsuarioSistema extends React.Component{
     constructor(props) {
         super(props);
-    
-        this.state = {
-          leftOpen: true,
-          rightOpen: true,
-        }
     }
 
 

@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+#containerReturn{
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    width: 50%;
+    height: 100vh;
+    background-color: rgb(192, 252, 234);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#header{
+    font-size: 50px;
+    height: 20%;
+    width: 100%;
+    border: solid red 1px;
+}
+
+#conteudo{
+    width: 100%;
+    height: 80%;
+    border: 1px solid red;
+}
+
+div#principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+}
+
+.bar{
+    height: 100vh;
+    width: 25%;
+    background-color: rgb(29, 159, 219);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    transition-duration: 300ms;
+}
+
+#SidebarEsq{
+    align-items: flex-start;
+    left: -20%;
+}
+
+#SidebarEsq:hover{
+    transform: translate(80%);
+    align-items: center;
+    opacity: 1;
+}
+
+#SidebarEsq:not(:hover){
+    transform: translate(0%);
+    align-items: flex-start;
+}
+
+#list{
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50%;
+}
+
+#bt,#icone{
+    font-size: 15px;
+    width: 40%;
+    height: 10%;
+    border: 0;
+    background-color: rgb(192, 252, 234);
+    border: 1px solid white;
+}
+
+#icone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 20%;
+    background-color: unset;
+    border: 0;
+}
+.icon{
+    width: 20%;
+    height: 100%;
+    background-color: rgb(192, 252, 234);
+    color: black;
+    opacity: initial;
+}
+
+#bt:active{
+    border: 1px solid black;
+    position: relative;
+    top: 2px;
+}
