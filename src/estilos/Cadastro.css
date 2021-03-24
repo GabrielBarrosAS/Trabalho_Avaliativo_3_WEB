@@ -1,22 +1,26 @@
 #cadastro{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: rgb(29, 159, 219);
+    flex-direction: column;
+    background-color: rgb(192, 252, 234);
     font-weight: bolder;
     color: black;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 100vh;
+}
+
+h1#cadastro{
+    background-color: rgb(29, 159, 219);
+    width: 50%;
+    height: min-content;
+    border-bottom: 1px solid black;
 }
 
 #campos,#botoes2{
+    background-color: rgb(29, 159, 219);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
+    width: 50%;    
     padding: 10px 10px 10px 10px;
 }
 

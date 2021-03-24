@@ -2,7 +2,8 @@ import React from 'react'
 
 import TelaLogin from './TelaLogin'
 import Cadastro from './TelasCadastro/Cadastro'
-import Verificacao from './TelasCadastro/VerificacaoEmail'
+import UsuarioSistema from "./TelasCadastro/UsuarioSistema"
+import UsuarioAdm from './TelasCadastro/UsuarioAdm'
 
 import {Switch,Route} from 'react-router-dom'
 export default class App extends React.Component{
@@ -40,7 +41,8 @@ export default class App extends React.Component{
             <Route exact path='/' component={TelaLogin}/>
             <Route path='/cadastro' render={props => <Cadastro {...props} atualiza={this.setEstado}/>}/>
             <Route path='/verificacao' 
-                render={props => <Verificacao {...props} nome={this.state.nomeCadastrado} data={this.state.dataNascCadastrada} email={this.state.emailCadastrado}/>}/>
+                render={props => <UsuarioSistema {...props} nome={this.state.nomeCadastrado} data={this.state.dataNascCadastrada} email={this.state.emailCadastrado}/>}/>
+            <Route path='/entrar' component={UsuarioAdm}/>
         </Switch>
         </div>
         )

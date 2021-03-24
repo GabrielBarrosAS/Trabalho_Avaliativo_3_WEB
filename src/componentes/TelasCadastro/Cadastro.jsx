@@ -1,5 +1,5 @@
 import React from 'react'
-import css from '../../estilos/Cadastro.css'
+import '../../estilos/Cadastro.css'
 import {Link} from 'react-router-dom'
 
 export default class Cadastro extends React.Component{
@@ -23,8 +23,7 @@ export default class Cadastro extends React.Component{
     render(){
         return(
             <div id='cadastro'>
-                <link rel="stylesheet" href={css}/>
-                <h1>CADASTRO</h1>
+                <h1 id='cadastro'>CADASTRO</h1>
                 <div id='campos' ref={this.myRef}>
                     <div id='cadastroEsq'>
                         <label id='labelNome'>Nome do usuário</label>
