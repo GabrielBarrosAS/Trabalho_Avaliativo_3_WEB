@@ -2,14 +2,19 @@
     margin: 0;
     padding: 0;
     outline: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: black;
 }
 
 #containerReturn{
+    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 100vh;
-    width: 100%;
     background-color: chartreuse;
 }
 
@@ -18,29 +23,31 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    justify-items: center;
 }
 
 #conteudo{
-    height: 85%;
+    min-height: 90vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     background-color: blue;
 }
 
 #itemContent{
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: red;
-    width: 40%;
-    height: 25%;
+    margin: 5%;
 }
 
 #cabecalho{
-    height: 15%;
+    min-height: 10vh;
     background-color: palevioletred;
 }
 

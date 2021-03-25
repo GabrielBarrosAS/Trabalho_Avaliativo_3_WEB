@@ -33,22 +33,7 @@ export default class UsuarioAdm extends React.Component{
             title: 'Sair',
             link: '/',
             icone: 'BsXCircle'
-        },
-        {
-            title: 'Apagar Usuário',
-            link: '/apagar',
-            icone: 'BsXCircle'
-        },
-        {
-            title: 'Atualizar Usuário',
-            link: '/atualizar',
-            icone: 'BsXCircle'
-        },
-        {
-            title: 'Sair',
-            link: '/',
-            icone: 'BsXCircle'
-        },
+        }
     ]
     render(){
         return(
