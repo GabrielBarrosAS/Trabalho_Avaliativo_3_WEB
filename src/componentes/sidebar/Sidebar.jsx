@@ -1,5 +1,7 @@
 import React from 'react'
 import '../../estilos/sideBar.css'
+import Main from '../Main/index'
+
 import {BsListUl,BsSearch,BsPlusCircle,BsXCircle} from "react-icons/bs";
 
 export default class Sidebar extends React.Component{
@@ -32,18 +34,6 @@ export default class Sidebar extends React.Component{
         return list
     }
 
-    renderContent(){
-        console.log(this.props.content)
-        const list = this.props.content.map(obj =>(
-            <div key={obj._id} id='itemContent'>
-                <h1 key={obj._id}>{obj._id}</h1>
-                <h2 key={obj._id}>{obj._id}</h2>
-                <h2 key={obj._id}>{obj._id}</h2>
-            </div>
-        ));
-        return list
-    }
-
     render(){
         return(
             <div id='containerReturn'>
@@ -53,9 +43,9 @@ export default class Sidebar extends React.Component{
                     </div>
                 </div>
                 <div id='page'>
-                    <div id='cabecalho'>Header</div>
+                    <div id='cabecalho'>TELA DO ADMINISTRADOR</div>
                     <div id='conteudo'>
-                        {this.renderContent()}
+                        <Main aux='itemContent'/>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,60 @@
 import React from 'react'
 import api from '../service/api'
+
 export default class Main extends React.Component{
+    state = {
+        encomendas:[]
+    }
+
+    componentDidMount(){
+        this.loadProducts()
+    }
+
     loadProducts = async () => {
-        const list = []
         const response = await api.get('/encomendas')
-        console.log(response.data)
-        response.data.map(obj =>(
-            list.push(obj)
+        this.setState({encomendas: response.data})
+    }
+
+    computeContent(){
+        const list = []
+        this.state.encomendas.map(encomenda =>(
+            list.push(
+            <div className={this.props.aux} key={encomenda._id}>
+                {encomenda._id}
+                <br/>
+                {encomenda.clientes[0].nome}
+                <br/>
+                {encomenda.clientes[1].nome}
+            </div>
+            )
         ))
-        console.log(list)
+        this.state.encomendas.map(encomenda =>(
+            list.push(
+            <div className={this.props.aux} key={encomenda._id}>
+                {encomenda._id}
+                <br/>
+                {encomenda.clientes[0].nome}
+                <br/>
+                {encomenda.clientes[1].nome}
+            </div>
+            )
+        ))
+        this.state.encomendas.map(encomenda =>(
+            list.push(
+            <div className={this.props.aux} key={encomenda._id}>
+                {encomenda._id}
+                <br/>
+                {encomenda.clientes[0].nome}
+                <br/>
+                {encomenda.clientes[1].nome}
+            </div>
+            )
+        ))
         return list
     }
 
     render(){
-        return this.loadProducts()
+        return this.computeContent()
     }
 }
+
