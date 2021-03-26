@@ -2,8 +2,8 @@ import React from 'react'
 
 import TelaLogin from './TelaLogin'
 import Cadastro from './TelasCadastro/Cadastro'
-import UsuarioSistema from "./TelasCadastro/UsuarioSistema"
-import UsuarioAdm from './TelasCadastro/UsuarioAdm'
+import UsuarioSistema from "./telasUsuarios/UsuarioSistema"
+import UsuarioAdm from './telasUsuarios/UsuarioAdm'
 
 import {Switch,Route} from 'react-router-dom'
 export default class App extends React.Component{

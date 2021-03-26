@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Sidebar from '../sidebar/Sidebar'
+import Main from '../Main/index'
 
 export default class UsuarioAdm extends React.Component{
     siderData = [
@@ -38,7 +39,7 @@ export default class UsuarioAdm extends React.Component{
     render(){
         return(
             <div>
-                <Sidebar data = {this.siderData}></Sidebar>
+                <Sidebar data = {this.siderData} content={<Main/>}></Sidebar>
             </div>
         )
     }

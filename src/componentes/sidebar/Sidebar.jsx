@@ -1,6 +1,5 @@
 import React from 'react'
-import './estilos.css'
-import { BiSortDown } from "react-icons/bi";
+import '../../estilos/sideBar.css'
 import {BsListUl,BsSearch,BsPlusCircle,BsXCircle} from "react-icons/bs";
 
 export default class Sidebar extends React.Component{
@@ -18,12 +17,14 @@ export default class Sidebar extends React.Component{
                 return <BsPlusCircle className='icon'></BsPlusCircle>
             case 'BsXCircle':
                 return <BsXCircle className='icon'></BsXCircle>
+            default :
+            break;
         }
     }
 
     renderButton(){
         const list = this.props.data.map(obj =>(
-            <div id='conteudoList'>
+            <div key={obj.title} id='conteudoList'>
                 <button key={obj.title} id='bt'>{obj.title}</button>
                 {this.renderIcone(obj.icone)}
             </div>
@@ -32,11 +33,12 @@ export default class Sidebar extends React.Component{
     }
 
     renderContent(){
-        const list = this.props.data.map(obj =>(
-            <div id='itemContent'>
-                <h1>{obj.title}</h1>
-                <h2>{obj.link}</h2>
-                <h2>{obj.icone}</h2>
+        console.log(this.props.content)
+        const list = this.props.content.map(obj =>(
+            <div key={obj._id} id='itemContent'>
+                <h1 key={obj._id}>{obj._id}</h1>
+                <h2 key={obj._id}>{obj._id}</h2>
+                <h2 key={obj._id}>{obj._id}</h2>
             </div>
         ));
         return list
