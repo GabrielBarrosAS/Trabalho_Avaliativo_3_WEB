@@ -1,11 +1,15 @@
 import React from 'react'
 import '../../estilos/sideBar.css'
-import Main from '../Main/index'
-import {Link,Route,Switch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import {BsListUl,BsSearch,BsPlusCircle,BsXCircle} from "react-icons/bs";
 
 export default class Sidebar extends React.Component{
+
+    state = {
+        evento: ''
+    }
+
     renderIcone(obj){
         switch (obj) {
             case 'BsListUl':
