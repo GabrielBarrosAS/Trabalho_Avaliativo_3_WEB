@@ -38,7 +38,7 @@ export default class UsuarioAdm extends React.Component{
     render(){
         return(
             <div>
-                <Sidebar data = {this.siderData}></Sidebar>
+                <Sidebar data = {this.siderData} content={this.props.content}></Sidebar>
             </div>
         )
     }

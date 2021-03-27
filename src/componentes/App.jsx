@@ -4,6 +4,7 @@ import TelaLogin from './TelaLogin'
 import Cadastro from './TelasCadastro/Cadastro'
 import UsuarioSistema from "./telasUsuarios/UsuarioSistema"
 import UsuarioAdm from './telasUsuarios/UsuarioAdm'
+import Main from './Main/index'
 
 import {Switch,Route} from 'react-router-dom'
 export default class App extends React.Component{
@@ -34,6 +35,7 @@ export default class App extends React.Component{
         })
         console.log(valores)
     }
+    
     render(){
         return(
         <div>
@@ -42,7 +44,11 @@ export default class App extends React.Component{
             <Route path='/cadastro' render={props => <Cadastro {...props} atualiza={this.setEstado}/>}/>
             <Route path='/verificacao' 
                 render={props => <UsuarioSistema {...props} nome={this.state.nomeCadastrado} data={this.state.dataNascCadastrada} email={this.state.emailCadastrado}/>}/>
-            <Route path='/entrar' component={UsuarioAdm}/>
+            <Route exact path='/entrar' component={UsuarioAdm}/>
+            <Route path='/entrar/Listar Usuários' 
+                render={props => <UsuarioAdm {...props} content={<Main  classe ='itemContent'code='1'/>}/>}/>
+            <Route path='/entrar/Buscar Usuário'
+                render={props => <UsuarioAdm {...props} content={<Main classe = 'itemContent'code='2'/>}/>}/>
         </Switch>
         </div>
         )
