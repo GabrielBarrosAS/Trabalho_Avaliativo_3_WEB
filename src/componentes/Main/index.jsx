@@ -3,13 +3,23 @@ import React from 'react'
 import api from '../service/api'
 import '../../estilos/sideBar.css'
 import SideBar from '../sidebar/Sidebar'
-
 export default class Main extends React.Component{
     constructor(props){
         super(props)
 
         this.state = {
             usuarios:[]
+        }
+    }
+    
+    componentDidMount(){
+        this.up()
+    }
+
+    up(){
+        if(this.props.novo.post === true){
+            this.createUsuario()
+            this.props.atualiza(["","","","","","","","",false])
         }
     }
 
@@ -19,19 +29,23 @@ export default class Main extends React.Component{
     }
 
     createUsuario = async () => {
-        await api.post('/usuarios',{
-            "name": "Gabriel Barros",
-            "email": "gASBASSD3@gmailll.com",
-            "password": "44334",
-            "cpf": "76822123-99",
-            "endereço": {
-              "CEP": "629000-000",
-              "cidade": "Russas",
-              "rua": "25 de dezembro",
-              "numero": "6299"
+        const dados = this.props.novo
+        let aux = {
+            "name": dados.nomeCadastrado,
+            "email": dados.emailCadastrado,
+            "password": dados.senhaCadastrada,
+            "cpf": dados.CPFCadastrado,
+            "endereço":{
+              "CEP": dados.CEPCadastrado,
+              "cidade": dados.cidadeCadastrada,
+              "rua": dados.ruaCadastrada,
+              "numero": dados.numeroCadastrado
             },
             "funcionario": false
-        })
+        }
+        console.log(aux)
+        await api.post('/usuarios',aux)
+        console.log('oi4')
         this.loadUsuarios()
     }
 
@@ -52,13 +66,16 @@ export default class Main extends React.Component{
     }
 
     render(){
-        return <SideBar 
-                    data={this.props.data}
+        return(
+            <div>
+                <SideBar data={this.props.data}
                     get={this.loadUsuarios}
                     post={this.createUsuario}
                     content={this.computeContent()}
                     >
                 </SideBar>
+            </div>
+        )
     }
 }
 

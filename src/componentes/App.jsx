@@ -10,28 +10,32 @@ export default class App extends React.Component{
         super(props)
         this.state = {
             nomeCadastrado: '',
-            senhaCadastrada: '',
             emailCadastrado: '',
+            CEPCadastrado: '',
+            ruaCadastrada: '',
+            senhaCadastrada: '',
             CPFCadastrado: '',
-            dataNascCadastrada: '',
-            enderecoCadastrado: '',
-            numeroCasaCadastrado: '',
-            complementoCadastrado: '',
+            cidadeCadastrada: '',
+            numeroCadastrado: '',
+            post: false
         };
 
+        this.setEstado = this.setEstado.bind(this)
     }
 
     setEstado = (valores)=>{
-        this.setState({nomeCadastrado: valores[0],
+        this.setState({
+            nomeCadastrado: valores[0],
             emailCadastrado: valores[1],
-            dataNascCadastrada: valores[2],
-            numeroCasaCadastrado: valores[3],
+            CEPCadastrado: valores[2],
+            ruaCadastrada: valores[3],
             senhaCadastrada: valores[4],
             CPFCadastrado: valores[5],
-            enderecoCadastrado: valores[6],
-            complementoCadastrado: valores[7],
+            cidadeCadastrada: valores[6],
+            numeroCadastrado: valores[7],
+            post: valores[8]
         })
-        console.log(valores)
+        console.log(this.state)
     }
     
     render(){
@@ -39,16 +43,18 @@ export default class App extends React.Component{
         <div>
         <Switch>
             <Route exact path='/' component={TelaLogin}/>
-            <Route path='/cadastro' render={props => <Cadastro {...props} atualiza={this.setEstado}/>}/>
             <Route path='/verificacao' 
                 render={props => <UsuarioSistema {...props} nome={this.state.nomeCadastrado} data={this.state.dataNascCadastrada} email={this.state.emailCadastrado}/>}/>
-            <Route exact path='/entrar' component={UsuarioAdm}/>
+            <Route exact path='/entrar' render={props =>
+                <UsuarioAdm {...props} novo={this.state} atualiza={this.setEstado}/>}/>
+            <Route exact path='/entrar/Listar Usuários' render={props => <UsuarioAdm {...props} novo={this.state} atualiza={this.setEstado}/>}/>
+            <Route exact path='/entrar/Criar Usuário' render={props => <Cadastro {...props} atualiza={this.setEstado}/>}/>
 
 
 
 
-
-            {/*<Route path='/entrar/Listar Usuários' 
+            {/*
+                <Route path='/cadastro' render={props => <Cadastro {...props} atualiza={this.setEstado}/>}/><Route path='/entrar/Listar Usuários' 
                 render={props => <UsuarioAdm {...props} content={<Main  classe ='itemContent'code='1'/>}/>}/>
             <Route path='/entrar/Buscar Usuário'
                 render={props => <UsuarioAdm {...props} content={<Main classe = 'itemContent'code='2'/>}/>}/>

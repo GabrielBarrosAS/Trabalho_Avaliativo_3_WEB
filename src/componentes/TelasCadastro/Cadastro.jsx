@@ -17,6 +17,8 @@ export default class Cadastro extends React.Component{
                 list.push(this.myRef.current.children[index].children[j].value)
             }
         }
+        list.push(true)
+        console.log('oi2')
         this.props.atualiza(list)
     }
 
@@ -30,27 +32,27 @@ export default class Cadastro extends React.Component{
                         <input type="text" id='nome'/>
                         <label id='labelEmail'>Email</label>
                         <input type="email" id='email'/>
-                        <label id='labelDataNascimento'>Data de nascimento</label>
-                        <input type="date" name="" id="dataNascimento"/>
-                        <label id='numCasa'>Número</label>
-                        <input type="number" id='numCasa'/>
+                        <label id='labelCEP'>CEP</label>
+                        <input type="text" id="CEP"/>
+                        <label id='labelRua'>Rua</label>
+                        <input type="text" id="Rua"/>
                     </div>
                     <div id='cadastroDir'>
                         <label id='labelSenha'>Senha</label>
                         <input type="password" id="senhaCadastro"/>
                         <label id='labelCPF'>CPF</label>
                         <input type="text" id="cpf"/>
-                        <label id='labelEndereco'>Endereco</label>
-                        <input type="text" name="" id="endereco"/>
-                        <label id='labelcomplemento'>Complemento (Opcional)</label>
-                        <input type="text" id='complemento'/>
+                        <label id='labelCidade'>Cidade</label>
+                        <input type="text" id='cidade'/>
+                        <label id='labelNumero'>Numero</label>
+                        <input type="number" id='numero'/>
                     </div>
                 </div>
                 <div id='botoes2'>
                     <Link to='/'>
                         <button id='sair'>SAIR</button>
                     </Link>
-                    <Link to='/verificacao'>
+                    <Link to='/entrar'>
                         <button id='cadastrar2' onClick={this.print}>
                             CADASTRAR
                         </button>

@@ -37,7 +37,7 @@ export default class UsuarioAdm extends React.Component{
     render(){
         return(
             <div>
-                <Main data = {this.siderData}/>
+                <Main data = {this.siderData} novo={this.props.novo} atualiza={this.props.atualiza}/>
             </div>
         )
     }
