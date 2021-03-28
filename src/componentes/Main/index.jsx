@@ -1,73 +1,50 @@
 import React from 'react'
+
 import api from '../service/api'
 import '../../estilos/sideBar.css'
+import SideBar from '../sidebar/Sidebar'
+
 export default class Main extends React.Component{
-    state = {
-        encomendas:[],
-        code: '0'
-    }
+    constructor(props){
+        super(props)
 
-    componentDidMount(){
-        switch (this.props.code) {
-            case '1':
-                this.loadProducts()
-                break;
-            case '2':
-                this.setState({encomendas: []})
-                break;       
-            case '3':
-                this.createProduct(this.props.novo)
-                this.loadProducts()
-                break;     
-            default:
-                break;
+        this.state = {
+            usuarios:[]
         }
     }
 
-    componentDidUpdate(){
-        console.log(this.state.code)
-        if(this.state.code !== this.props.code){    
-            this.setState({code: this.props.code})
-        }
-        switch (this.state.code) {
-            case '1':
-                this.loadProducts()
-                break;
-            case '2':
-                if(this.state.encomendas.length !== 0){
-                    this.setState({encomendas: []})
-                }
-                break;
-            case '3':
-                this.createProduct(this.props.novo)
-                this.loadProducts()
-                this.setState({code: '0'})
-                break;
-            default:
-                break;
-        }
+    loadUsuarios = async () => {
+        const response = await api.get('/usuarios')
+        this.setState({usuarios: response.data})
     }
 
-    loadProducts = async () => {
-        const response = await api.get('/encomendas')
-        this.setState({encomendas: response.data})
-    }
-
-    createProduct = async (novo) => {
-        const responde = await api.post('/encomendas/criar',novo)
-        this.loadProducts()
+    createUsuario = async () => {
+        await api.post('/usuarios',{
+            "name": "Gabriel Barros",
+            "email": "gASBASSD3@gmailll.com",
+            "password": "44334",
+            "cpf": "76822123-99",
+            "endereço": {
+              "CEP": "629000-000",
+              "cidade": "Russas",
+              "rua": "25 de dezembro",
+              "numero": "6299"
+            },
+            "funcionario": false
+        })
+        this.loadUsuarios()
     }
 
     computeContent(){
         const list = []
-        this.state.encomendas.map(encomenda =>(
+        this.state.usuarios.map(usuario =>(
             list.push(
-            <div className='itemContent' key={encomenda._id}>
-                {encomenda._id}
+            <div className='itemContent' key={usuario._id}>
+                {usuario._id}
                 <br/>
-                {encomenda.clientes[0].nome}
+                {usuario.name}
                 <br/>
-                {encomenda.clientes[1].nome}
+                {usuario.email}
             </div>
             )
         ))
@@ -75,7 +52,13 @@ export default class Main extends React.Component{
     }
 
     render(){
-        return this.computeContent()
+        return <SideBar 
+                    data={this.props.data}
+                    get={this.loadUsuarios}
+                    post={this.createUsuario}
+                    content={this.computeContent()}
+                    >
+                </SideBar>
     }
 }
 
