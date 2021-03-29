@@ -2,6 +2,7 @@ import React from 'react'
 import '../../estilos/sideBar.css'
 import {BsListUl,BsSearch,BsPlusCircle,BsXCircle} from "react-icons/bs";
 import {Link} from 'react-router-dom'
+import { Height } from '@material-ui/icons';
 export default class Sidebar extends React.Component{
 
     renderIcone(obj){
@@ -24,14 +25,14 @@ export default class Sidebar extends React.Component{
             case 'Listar Usuários':
                 return this.props.get()
             default:
-                break;
+            break
         }
     }
 
     renderButton(){
         const list = this.props.data.map(obj =>(
             <div key={obj.title} id='conteudoList'>
-                <Link to={'/entrar/' + obj.title}>
+                <Link to={'/entrar/' + obj.title} style={{ width: '100%'}}>
                     <button key={obj.title} id='bt' onClick={()=>this.evento(obj.title)}>{obj.title}</button>
                 </Link>
                 {this.renderIcone(obj.icone)}

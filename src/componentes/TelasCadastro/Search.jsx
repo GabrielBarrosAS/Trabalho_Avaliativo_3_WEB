@@ -2,7 +2,7 @@ import React from 'react'
 import '../../estilos/Cadastro.css'
 import {Link} from 'react-router-dom'
 
-export default class Cadastro extends React.Component{
+export default class Search extends React.Component{
     constructor(props){
         super(props)
 
@@ -17,9 +17,8 @@ export default class Cadastro extends React.Component{
                 list.push(this.myRef.current.children[index].children[j].value)
             }
         }
+        list.push(false)
         list.push(true)
-        list.push(false)
-        list.push(false)
         this.props.atualiza(list)
     }
 
@@ -29,24 +28,8 @@ export default class Cadastro extends React.Component{
                 <h1 id='cadastro'>CADASTRO</h1>
                 <div id='campos' ref={this.myRef}>
                     <div id='cadastroEsq'>
-                        <label id='labelNome'>Nome do usuário</label>
-                        <input type="text" id='nome'/>
-                        <label id='labelEmail'>Email</label>
-                        <input type="email" id='email'/>
-                        <label id='labelCEP'>CEP</label>
-                        <input type="text" id="CEP"/>
-                        <label id='labelRua'>Rua</label>
-                        <input type="text" id="Rua"/>
-                    </div>
-                    <div id='cadastroDir'>
-                        <label id='labelSenha'>Senha</label>
-                        <input type="password" id="senhaCadastro"/>
-                        <label id='labelCPF'>CPF</label>
-                        <input type="text" id="cpf"/>
-                        <label id='labelCidade'>Cidade</label>
-                        <input type="text" id='cidade'/>
-                        <label id='labelNumero'>Numero</label>
-                        <input type="number" id='numero'/>
+                        <label id='labelNome'>EMAIL</label>
+                        <input type="email" id="email"/>
                     </div>
                 </div>
                 <div id='botoes2'>
@@ -55,7 +38,7 @@ export default class Cadastro extends React.Component{
                     </Link>
                     <Link to='/entrar'>
                         <button id='cadastrar2' onClick={this.print}>
-                            CADASTRAR
+                            Buscar
                         </button>
                     </Link>
                 </div>

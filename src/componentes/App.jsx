@@ -1,6 +1,7 @@
 import React from 'react'
 import TelaLogin from './TelaLogin'
 import Cadastro from './TelasCadastro/Cadastro'
+import Search from './TelasCadastro/Search'
 import UsuarioSistema from "./telasUsuarios/UsuarioSistema"
 import UsuarioAdm from './telasUsuarios/UsuarioAdm'
 import {Switch,Route} from 'react-router-dom'
@@ -33,9 +34,17 @@ export default class App extends React.Component{
             CPFCadastrado: valores[5],
             cidadeCadastrada: valores[6],
             numeroCadastrado: valores[7],
-            post: valores[8]
+            post: valores[8],
+            search: valores[9],
         })
-        console.log(this.state)
+    }
+
+    setEmailBusca = (valores) =>{
+        this.setState({
+            emailCadastrado: valores[0],
+            post: valores[1],
+            search: valores[2]
+        })
     }
     
     render(){
@@ -49,6 +58,8 @@ export default class App extends React.Component{
                 <UsuarioAdm {...props} novo={this.state} atualiza={this.setEstado}/>}/>
             <Route exact path='/entrar/Listar Usuários' render={props => <UsuarioAdm {...props} novo={this.state} atualiza={this.setEstado}/>}/>
             <Route exact path='/entrar/Criar Usuário' render={props => <Cadastro {...props} atualiza={this.setEstado}/>}/>
+            <Route exact path='/entrar/Buscar Usuário' render={props => <Search {...props} atualiza=
+            {this.setEmailBusca}/>}/>
 
 
 

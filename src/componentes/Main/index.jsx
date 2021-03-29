@@ -13,13 +13,12 @@ export default class Main extends React.Component{
     }
     
     componentDidMount(){
-        this.up()
-    }
-
-    up(){
         if(this.props.novo.post === true){
             this.createUsuario()
-            this.props.atualiza(["","","","","","","","",false])
+            this.props.atualiza(["","","","","","","","",false,false])
+        }else if(this.props.novo.search === true){
+            this.search(this.props.novo)
+            this.props.atualiza(["","","","","","","","",false,false])
         }
     }
 
@@ -41,28 +40,51 @@ export default class Main extends React.Component{
               "rua": dados.ruaCadastrada,
               "numero": dados.numeroCadastrado
             },
-            "funcionario": false
+            "funcionario": true
         }
-        console.log(aux)
         await api.post('/usuarios',aux)
-        console.log('oi4')
         this.loadUsuarios()
     }
 
+    search = async (novo) =>{
+        const response = await api.get('/usuarios')
+        let id = ''
+        console.log(novo)
+        for (let index = 0; index < response.data.length; index++) {
+            if(response.data[index].email === novo.emailCadastrado){
+                console.log(response.data[index].email +'='+novo.emailCadastrado)
+                id = response.data[index]._id
+            }
+        }
+        console.log(id)
+        const response2 = await api.get('/usuarios/'+`${id}`)
+        this.setState({usuarios: response2.data})
+    }
+
     computeContent(){
-        const list = []
-        this.state.usuarios.map(usuario =>(
-            list.push(
-            <div className='itemContent' key={usuario._id}>
-                {usuario._id}
-                <br/>
-                {usuario.name}
-                <br/>
-                {usuario.email}
-            </div>
-            )
-        ))
-        return list
+        if(this.state.usuarios.length > 1){    
+            const list = []
+            this.state.usuarios.map(usuario =>(
+                list.push(
+                <div className='itemContent' key={usuario._id}>
+                    {usuario._id}
+                    <br/>
+                    {usuario.name}
+                    <br/>
+                    {usuario.email}
+                </div>
+                )
+            ))
+            return list
+        }else if(this.state.usuarios.length !== 0){
+            return (<div className='itemContent'>
+                        {this.state.usuarios._id}
+                        <br/>
+                        {this.state.usuarios.name}
+                        <br/>
+                        {this.state.usuarios.email}
+                    </div>)
+        }
     }
 
     render(){
@@ -71,6 +93,7 @@ export default class Main extends React.Component{
                 <SideBar data={this.props.data}
                     get={this.loadUsuarios}
                     post={this.createUsuario}
+                    search={this.search}
                     content={this.computeContent()}
                     >
                 </SideBar>
