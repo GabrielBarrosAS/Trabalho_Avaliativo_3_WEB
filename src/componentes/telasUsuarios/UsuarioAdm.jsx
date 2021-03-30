@@ -5,33 +5,33 @@ export default class UsuarioAdm extends React.Component{
     siderData = [
         {
             title: 'Listar Usuários',
-            link: '/index',
+            link: '/entrar/Listar Usuários',
             icone: 'BsListUl'
         },
         {
             title: 'Buscar Usuário',
-            link: '/buscar',
+            link: '/entrar/Buscar Usuário',
             icone: 'BsSearch'
         },
         {
             title: 'Criar Usuário',
-            link: '/criar',
+            link: '/entrar/Criar Usuário',
             icone: 'BsPlusCircle'
         },
         {
             title: 'Apagar Usuário',
-            link: '/apagar',
-            icone: 'BsXCircle'
+            link: '/entrar/Apagar Usuário',
+            icone: 'BsTrash'
         },
         {
             title: 'Atualizar Usuário',
-            link: '/atualizar',
-            icone: 'BsXCircle'
+            link: '/entrar/Atualizar Usuário',
+            icone: 'BsArrowRepeat'
         },
         {
             title: 'Sair',
             link: '/',
-            icone: 'BsXCircle'
+            icone: 'ImExit'
         }
     ]
     render(){

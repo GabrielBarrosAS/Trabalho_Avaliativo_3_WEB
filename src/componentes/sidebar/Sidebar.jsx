@@ -1,8 +1,9 @@
 import React from 'react'
 import '../../estilos/sideBar.css'
-import {BsListUl,BsSearch,BsPlusCircle,BsXCircle} from "react-icons/bs";
+import {BsListUl,BsSearch,BsPlusCircle,BsTrash, BsArrowRepeat} from "react-icons/bs";
+import { ImExit } from "react-icons/im";
 import {Link} from 'react-router-dom'
-import { Height } from '@material-ui/icons';
+
 export default class Sidebar extends React.Component{
 
     renderIcone(obj){
@@ -13,8 +14,12 @@ export default class Sidebar extends React.Component{
                 return <BsSearch className='icon'/>
             case 'BsPlusCircle':
                 return <BsPlusCircle className='icon'/>
-            case 'BsXCircle':
-                return <BsXCircle className='icon'/>
+            case 'BsTrash':
+                return <BsTrash className='icon'/>
+            case 'BsArrowRepeat':
+                return <BsArrowRepeat className='icon'/>
+            case 'ImExit':
+                return <ImExit className='icon'/>
             default :
             break;
         }
@@ -32,7 +37,7 @@ export default class Sidebar extends React.Component{
     renderButton(){
         const list = this.props.data.map(obj =>(
             <div key={obj.title} id='conteudoList'>
-                <Link to={'/entrar/' + obj.title} style={{ width: '100%'}}>
+                <Link to={obj.link} style={{ height: '100%',width: '100%'}}>
                     <button key={obj.title} id='bt' onClick={()=>this.evento(obj.title)}>{obj.title}</button>
                 </Link>
                 {this.renderIcone(obj.icone)}

@@ -18,7 +18,8 @@ export default class App extends React.Component{
             CPFCadastrado: '',
             cidadeCadastrada: '',
             numeroCadastrado: '',
-            post: false
+            post: false,
+            search: false
         };
 
         this.setEstado = this.setEstado.bind(this)
@@ -52,7 +53,7 @@ export default class App extends React.Component{
         <div>
         <Switch>
             <Route exact path='/' component={TelaLogin}/>
-            <Route path='/verificacao' 
+            <Route path='/home' 
                 render={props => <UsuarioSistema {...props} nome={this.state.nomeCadastrado} data={this.state.dataNascCadastrada} email={this.state.emailCadastrado}/>}/>
             <Route exact path='/entrar' render={props =>
                 <UsuarioAdm {...props} novo={this.state} atualiza={this.setEstado}/>}/>

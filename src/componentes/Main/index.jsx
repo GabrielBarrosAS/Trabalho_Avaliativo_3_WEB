@@ -49,10 +49,8 @@ export default class Main extends React.Component{
     search = async (novo) =>{
         const response = await api.get('/usuarios')
         let id = ''
-        console.log(novo)
         for (let index = 0; index < response.data.length; index++) {
             if(response.data[index].email === novo.emailCadastrado){
-                console.log(response.data[index].email +'='+novo.emailCadastrado)
                 id = response.data[index]._id
             }
         }
@@ -67,22 +65,20 @@ export default class Main extends React.Component{
             this.state.usuarios.map(usuario =>(
                 list.push(
                 <div className='itemContent' key={usuario._id}>
-                    {usuario._id}
-                    <br/>
-                    {usuario.name}
-                    <br/>
-                    {usuario.email}
+                    <span>{usuario.name}</span>
+                    <span>{usuario.email}</span>
+                    <span>{usuario._id}</span>
                 </div>
                 )
             ))
             return list
         }else if(this.state.usuarios.length !== 0){
             return (<div className='itemContent'>
-                        {this.state.usuarios._id}
+                        <span>{this.state.usuarios._id}</span>
                         <br/>
-                        {this.state.usuarios.name}
+                        <span>{this.state.usuarios.name}</span>
                         <br/>
-                        {this.state.usuarios.email}
+                        <span>{this.state.usuarios.email}</span>
                     </div>)
         }
     }
