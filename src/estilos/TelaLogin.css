@@ -40,10 +40,10 @@ label,input,button#entrar,button#cadastrar{
     height: 20px;
     width: 25%;
     font-size: 20px;
-    text-align: left;
     border: 1px solid black;
 }
 label{
+    display: flex;
     border: 0px;
 }
 input{

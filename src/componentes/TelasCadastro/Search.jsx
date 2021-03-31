@@ -27,8 +27,8 @@ export default class Search extends React.Component{
             <div id='cadastro'>
                 <h1 id='cadastro'>BUSCAR USUÁRIO</h1>
                 <div id='campos' ref={this.myRef}>
-                    <div id='cadastroEsq' style ={{width: '100%'}}>
-                        <label id='labelNome'>EMAIL</label>
+                    <div id='cadastroEsq' style ={{width: '100%',alignItems:'center'}}>
+                        <label id='labelNome' style ={{justifyContent:'center'}}>EMAIL</label>
                         <input type="email" id="email"/>
                     </div>
                 </div>
