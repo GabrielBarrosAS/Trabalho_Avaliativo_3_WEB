@@ -3,7 +3,7 @@ import '../../estilos/Cadastro.css'
 import {Link} from 'react-router-dom'
 import api from '../service/api';
 
-export default class Cadastro extends React.Component{
+export default class CadastroUser extends React.Component{
     constructor(props){
         super(props)
 
@@ -11,17 +11,30 @@ export default class Cadastro extends React.Component{
         this.print = this.print.bind(this)
     }
     
-    print(){
+    print = async () => {
         const list = []
         for (let index = 0; index < this.myRef.current.children.length; index++){
             for (let j = 1; j < this.myRef.current.children[index].children.length; j+=2){
                 list.push(this.myRef.current.children[index].children[j].value)
             }
         }
-        list.push(true)//aq eu mudo pq faz na api post/usuario
-        list.push(false)
-        list.push(false)
-        this.props.atualiza(list)
+
+        let aux = {
+            "name": list[0],
+            "email": list[1],
+            "password": list[4],
+            "cpf": list[5],
+            "endereço":{
+                "CEP": list[2],
+                "cidade": list[6],
+                "rua": list[3],
+                "numero": list[7]
+            },
+            "funcionario": false
+        }
+        
+        await api.post('/usuarios',aux)
+
     }
 
     render(){
@@ -51,10 +64,10 @@ export default class Cadastro extends React.Component{
                     </div>
                 </div>
                 <div id='botoes2'>
-                    <Link to='/entrar'>
+                    <Link to='/'>
                         <button id='sair'>SAIR</button>
                     </Link>
-                    <Link to='/entrar'>
+                    <Link to='/'>
                         <button id='cadastrar2' onClick={this.print}>
                             CADASTRAR
                         </button>
